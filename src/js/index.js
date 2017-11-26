@@ -22,6 +22,8 @@ actions = app.attach(actions, 'router', router.actions);
 // rest
 let rest = require('./services/rest');
 actions = app.attach(actions, 'rest', rest.actions);
+// render3d
+let render3d = require('./services/render3d');
 
 // hot reloading
 if (module.hot) {
@@ -50,6 +52,13 @@ if (module.hot) {
 		// actions.set('needsRefresh', true);
 		// state$.connect();
 	});
+	// render3d
+	module.hot.accept("./services/render3d", function() {
+		console.log('updating render3d');
+		render3d = require('./services/render3d');
+		actions.set('needsRefresh', true);
+		// state$.connect();
+	});
 } else {
 	actions$ = actions.stream;
 }
@@ -69,6 +78,29 @@ actions$
 // state change hooks
 router.hook({state$, actions});
 rest.hook({state$, actions});
+
+// refesh
+state$.distinctUntilChanged(state => state.needsRefresh)
+	.filter(state => state.needsRefresh)
+	.subscribe(state =>
+			actions.toggle('needsRefresh')
+	);
+
+$.interval(100).map(() => document.querySelector('#view3d'))
+	.distinctUntilChanged(canvas => canvas)
+	.filter(canvas => canvas)
+	.subscribe(canvas => render3d.hook(state$, actions, canvas));
+
+$.fromEvent(document, 'mousemove')
+	.subscribe(ev => (
+		// console.log(ev),
+		actions.updateView(
+			window.innerWidth,
+			window.innerHeight,
+			ev.pageX,
+			ev.pageY
+		)
+	));
 
 // state -> ui
 const ui$ = state$.map(state => ui({state, actions}));

@@ -2465,12 +2465,12 @@ h1, h2, h3, h4, h5 {
         box-sizing: content-box;
         padding: 6px 14px 0px 14px;
         text-decoration: none;
-        transition: background .5s, box-shadow 1s;
+        transition: background .5s, box-shadow .5s;
         outline: none; }
         #ui header ul.menu li > a.active {
           box-shadow: inset 0px 0px 20px #eee; }
         #ui header ul.menu li > a:hover {
-          box-shadow: inset 0px 0px 30px #eee; }
+          text-decoration: underline; }
 
 #ui ul.breadcrumb {
   animation: fadein .5s;
@@ -2646,6 +2646,33 @@ h1, h2, h3, h4, h5 {
         animation: fadein .5s;
         margin: 0px 10px;
         content: '>'; }
+  #ui .configure ul.list-select {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    list-style: none; }
+    #ui .configure ul.list-select li {
+      margin: 0px;
+      padding: 0px;
+      display: inline-block;
+      box-sizing: border-box;
+      height: 128px;
+      line-height: 128px;
+      text-align: center;
+      cursor: pointer; }
+      #ui .configure ul.list-select li:hover {
+        background: #f5f5f5; }
+      #ui .configure ul.list-select li.selected {
+        background: #eef; }
+      #ui .configure ul.list-select li img {
+        max-width: 80%;
+        max-height: 100%;
+        vertical-align: middle; }
+  #ui .configure svg {
+    width: 800px;
+    height: 128px; }
 
 #ui .content {
   animation: fadein .5s;

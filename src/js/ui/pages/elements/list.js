@@ -14,13 +14,8 @@ module.exports = ({state, actions: {router}}) => [
 		'Create'
 	]),
 	grid({
-		fields: [{name: 'id', title: '#'}, 'name', 'function', 'default'],
-		list: [{
-			id: 1,
-			name: 'Test field 1',
-			function: 'text',
-			default: ''
-		}],
+		fields: [{name: 'id', title: '#'}, 'name', 'function', 'values', 'default'],
+		list: state.elements.list,
 		actions: [
 			{
 				sel: '.fa.fa-eye',

@@ -20,3 +20,22 @@
 				animation: fadein .5s
 				margin: 0px 10px
 				content: '>'
+	ul.list-select
+		+reset
+		width: 100%
+		list-style: none
+		li
+			+header-height(128px)
+			text-align: center
+			cursor: pointer
+			&:hover
+				background: #f5f5f5
+			&.selected
+				background: #eef
+			img
+				max-width: 80%
+				max-height: 100%
+				vertical-align: middle
+	svg
+		width: 800px
+		height: 128px

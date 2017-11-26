@@ -1,5 +1,5 @@
 {
-  "name": "cpq",
+  "name": "truck.conf",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -24,10 +24,12 @@
     "font-awesome": "^4.7.0",
     "iblokz-data": "^1.0.2",
     "iblokz-snabbdom-helpers": "^1.1.0",
+    "raf-stream": "^3.0.0",
     "rx": "^4.1.0",
     "rx-node": "^1.0.2",
     "snabbdom": "^0.5.4",
     "superagent": "^3.3.1",
+    "three": "^0.88.0",
     "xml-json": "^2.0.2",
     "xml2json": "^0.11.0"
   },
