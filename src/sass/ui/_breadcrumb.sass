@@ -1,0 +1,14 @@
+ul.breadcrumb
+	animation: fadein .5s
+	list-style: none
+	padding: 0px
+	margin: 20px 20px 10px 20px
+	li
+		animation: fadein .5s
+		display: inline-block
+		&:not(:first-child)::before
+			animation: fadein .5s
+			margin: 0px 5px
+			content: '>'
+		a
+			text-decoration: none

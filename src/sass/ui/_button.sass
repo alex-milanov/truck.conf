@@ -1,0 +1,36 @@
+button
+	+header-height(32px)
+	font-size: 14px
+	border: 0px
+	border-radius: 3px
+	background: none
+	padding: 0px 10px
+	cursor: pointer
+	box-sizing: border-box
+	outline: none
+	transition: background .3s, border .3s, color .3s
+	box-shadow: inset 0px 0px 7px #eee, 1px 1px 17px #eee
+	border: 1px solid #ddd
+	color: #777
+	&:hover
+		background: #fafafa
+		border-color: #aaa
+		color: #000
+	> i.fa
+		display: inline-block
+		font-size: 0.8em
+		line-height: inherit
+		height: inherit
+		float: left
+		min-width: 20px
+		text-align: center
+		&::after
+			content: '\00a0'
+
+td > button
+	line-height: inherit
+	height: inherit
+	font-size: inherit
+	border: 0px
+	border-radius: 0px
+	box-shadow: none

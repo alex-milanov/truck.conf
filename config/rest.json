@@ -1,0 +1,24 @@
+{
+	"collections": {
+		"elements": {
+			"model": "Element",
+			"schema": {
+				"name" : "String",
+				"function": { "type": "String", "enum": ["text", "number", "date", "list", "toggle"]},
+				"values": ["String"],
+				"default": "Mixed",
+				"createdOn": { "type": "Date", "default": "Date.now" }
+			}
+		}
+	},
+	"routes": {
+		"api" : {
+			"_meta": {
+				"virtual": true,
+				"crud": true,
+				"contentType": "json"
+			},
+			"elements": {}
+		}
+	}
+}
