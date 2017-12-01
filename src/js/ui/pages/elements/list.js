@@ -8,13 +8,31 @@ const {
 // components
 const grid = require('../../components/grid');
 
+const {obj} = require('iblokz-data');
+
+const orderWeight = [
+	'_id', 'name', 'title',
+	'function', 'type',
+	'values', 'default',
+	'author', 'start', 'end'
+];
+
+const skipFields = ['description', 'info'];
+
+const schemaToFields = schema => ['_id'].concat(Object.keys(schema))
+	.sort((a, b) => orderWeight[b] - orderWeight[a])
+	.map(field => obj.switch(field, {
+		default: () => field,
+		_id: () => ({name: '_id', title: '#'})
+	})());
+
 module.exports = ({state, actions: {router}}) => [
 	button({on: {click: () => router.go(`elements.new`)}}, [
 		i('.fa.fa-file-o'),
 		'Create'
 	]),
 	grid({
-		fields: [{name: 'id', title: '#'}, 'name', 'function', 'values', 'default'],
+		fields: schemaToFields(state.rest.collections.elements.schema),
 		list: state.elements.list,
 		actions: [
 			{
@@ -23,7 +41,7 @@ module.exports = ({state, actions: {router}}) => [
 			},
 			{
 				sel: '.fa.fa-pencil',
-				cb: ({doc, ev}) => router.go(`elements.${doc.id}`)
+				cb: ({doc, ev}) => router.go(`elements.${doc._id}`)
 			},
 			{
 				sel: '.fa.fa-trash-o',

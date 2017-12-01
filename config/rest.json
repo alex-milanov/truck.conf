@@ -5,7 +5,8 @@
 			"schema": {
 				"name" : "String",
 				"function": { "type": "String", "enum": ["text", "number", "date", "list", "toggle"]},
-				"values": "String"
+				"values": "String",
+				"default": "String"
 			}
 		}
 	},

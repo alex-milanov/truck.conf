@@ -28,21 +28,21 @@ const initial = {
 	elements: {
 		list: [
 			{
-				id: 1,
+				_id: 1,
 				name: 'brands',
 				function: 'list',
 				values: 'Man, Mercedes Benz, Volvo, Iveco',
 				default: 'n/a'
 			},
 			{
-				id: 2,
+				_id: 2,
 				name: 'brandModels',
 				function: 'list',
 				values: 'TGS, TGM, TGX, TGL',
 				default: 'n/a'
 			},
 			{
-				id: 3,
+				_id: 3,
 				name: 'wheelbase',
 				function: 'list',
 				values: '2600, 3600, 3900, 4800',
